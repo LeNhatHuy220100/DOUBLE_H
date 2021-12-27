@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Đăng ký tài khoản</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/DinhDang_DangKy.css"/>
+	<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<script src="../bootstrap-3.3.7-dist/js/jquery-3.5.1.min.js"></script>
+	<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+	<style>
+		#er1,#er2,#er3,#er4,#er5{
+			color: red;
+		}
+	</style>
+	<script>
+		function kiemtrasdt(){
+			var regsdt = /^(0\d{9})$/;                
+        	var gt = document.getElementById("phone").value;
+        	if (regsdt.test(gt))
+        	{
+               document.getElementById("er3").innerHTML = "<br>";
+               return true;
+        	}
+            else
+        	{
+               document.getElementById("er3").innerHTML = "* Số điện thoại gồm 10 số";
+               return false;
+               
+        	}
+
+		}
+
+
+		function kiemtraemail(){
+        	var regemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;                
+        	var gt = document.getElementById("email").value;
+        	if (regemail.test(gt))
+        	{
+               document.getElementById("er2").innerHTML = "<br>";
+               return true;
+        	}
+            else
+        	{
+               document.getElementById("er2").innerHTML = "* Email không hợp lệ";
+               return false;
+               
+        	}
+		}
+		function kiemtraten(){
+            //ho ten pai có ky tu bat dau bang ky tu in hoa,
+            //co hon 1 khoang trang cho nhập /Ho Tendem Ten/
+        	var regten = /^[A-Z]+[A-Za-z]*((\s)*[A-Z]+[A-Za-z]*)*$/;                
+           var gt = document.getElementById("name").value;
+           if (regten.test(gt))
+           {
+               document.getElementById("er1").innerHTML = "<br>";
+               return true;
+           }
+               
+           else
+           {
+               document.getElementById("er1").innerHTML = "* Họ tên bắt đầu bằng ký tự hoa";
+               return false;
+               
+           }
+		}
+
+		//mat khau la cac ky tu so va chu, có it nhat 1 ky tu dac biet va co it nhat 8 ky tu
+		function kiemtramk()
+           {
+               var regmk = /^(\w){8,}[\!\@\#\$\%\^\&\_\)\(]*\w*$/;
+               var mk = document.getElementById("password").value;
+               if(regmk.test(mk))
+               {
+                   document.getElementById("er4").innerHTML = "<br>";
+                   return true;
+               }
+               else
+               {
+                   document.getElementById("er4").innerHTML = "* Mật Khẩu là các ký tự số và chữ, có thể có ký tự đăc biệt và có ít nhất 8 ký tự";
+                   return false;
+               }
+
+           }
+
+        //viet them funtion kiem tra nhap lai mat khau 
+           function kiemtralaimk()
+           {
+               var mk=document.getElementById("password").value;
+               var mk2=document.getElementById("password2").value;
+               if(kiemtramk()&&mk==mk2)
+               {
+                   document.getElementById("er5").innerHTML = "";
+                   return true;
+               }
+               else
+               {
+                   document.getElementById("er5").innerHTML = "* Mật khẩu không khớp";
+                   return false;
+               }
+           }
+
+	</script>
+</head>
+<body>
+    <div class="outer">
+		<div class="logo col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<a href="../HTML/TrangChu.html"><img src="../IMAGE/logo_header.png" alt="logo_header"></a>
+		  </div>
+			<header class=" navbar-inverse col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		  
+					<ul class="nav navbar-nav">
+						<li><a href="../HTML/TrangChu.html">HOME</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">ÁO<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="../HTML/AoKhoac.html">ÁO KHOÁC</a></li>
+								<li><a href="../HTML/AoThun.html">ÁO THUN</a></li>
+								<li><a href="../HTML/AoSoMi.html">ÁO SƠ MI</a></li>
+							</ul>
+						</li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">QUẦN<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="../HTML/QuanJean.html">QUẦN JEAN</a></li>
+								<li><a href="../HTML/QuanShort.html">QUẦN SHORT</a></li>
+							</ul>
+						</li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PHỤ KIỆN<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="../HTML/VoNam.html">VỚ NAM</a></li>
+								<li><a href="../HTML/MuNam.html">MŨ NAM</a></li>
+							</ul>
+						</li>
+						<li><a href="../HTML/Sales.html">SALES</a></li>
+			  <li><a href="../HTML/About.html">ABOUT US</a></li>
+			  <li><a href="../HTML/DangNhap.html">ĐĂNG NHẬP</a></li>
+			  <li><a href="#">GIỎ HÀNG</a></li>
+			</ul>
+			<div class="search">
+			  <ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+				<li>
+				  <form action="">
+					<span class="form-group" style="padding-top: 10px; vertical-align: middle !important;">
+					  <input type="text" class="form-control" placeholder="Search" style="width: 200px !important;margin-top: 8px;margin-right: 15px;">
+					</span>
+				  </form>
+				</li>
+			  </ul>
+			</div>
+			
+		</header>
+		
+		<section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<br>
+			<p style="font-size: 40px;text-align: center;font-family: segoe ui light; padding-top: 10px;">ĐĂNG KÝ TÀI KHOẢN</p>
+			<br/><br/>
+			<form>
+				<p><input type="text" name="name" id="name" maxlength="250" tabindex="1" placeholder="  Họ tên" class="textfield" onblur="kiemtraten()"/></p>
+				<p id="er1"><br></p>
+				
+				<p><input type="email" name="email" id="email" maxlength="250" tabindex="2" placeholder="  Email của bạn" class="textfield" onblur="kiemtraemail()"/></p>
+				<p id="er2"><br></p>
+				
+				<p><input type="tel"  name="phone" id="phone" maxlength="250" tabindex="3" placeholder="  Điện thoại" class="textfield" onblur="kiemtrasdt()"/></p>
+				<p id="er3"><br></p>
+				
+				<p><input type="password" name="password" id="password" maxlength="250" tabindex="4" placeholder="  Mật khẩu" class="textfield" onblur="kiemtramk()"/></p>
+				<p id="er4"><br></p>
+				
+				<p><input type="password" name="password2" id="password2" maxlength="250" tabindex="5" placeholder="  Nhập lại mật khẩu" class="textfield" onblur="kiemtralaimk()"/></p>
+				<p id="er5"><br></p>
+
+				<br>
+				<p><input type="button" value=" Đăng ký " class="button" name="dangky" id="dangky"></p>
+				
+			</form>
+		</section>
+		<footer class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="footer1 col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <br>
+        <a href="../HTML/TrangChu.html"><img src="../IMAGE/logo_footer.png" alt="logo" height="110" width="250"></a>
+        <br>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <br>
+				<p>
+					<span style="color: white;font-size: 17px;">@ CÔNG TY CỔ PHẦN FASTECH ASIA</span><br/><br>
+          Mã số doanh nghiệp: 0108617038. Giấy chứng chận đăng <br>
+          ký doanh nghiệp do Sở Kế hoạch và Đầu tư TP Hà Nội cấp<br>
+          lần đầu ngày 14/08/2018.
+					<br/><br/>
+					GỌI MUA HÀNG, HỖ TRỢ (08:00 - 21:00):  <span style="color: white; font-size: 15px;">  1900.272737</span>
+        </p>
+        <br>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <br>
+				<p>
+					<span style="color: white; font-size: 17px;">THÔNG TIN CỬA HÀNG</span><br/><br/>
+					<span style="color: white;">Chi nhánh tại TPHCM:</span><br/>
+	
+					14-16 Quốc Hương, Phường Thảo Điền, Quận 2<br/><br/>
+	
+					<span style="color: white;">Chi nhánh tại Hà Nội:</span><br/>
+	
+					Tầng 2, T-231, Aeon Hà Đông
+        </p>
+        <br>
+			</div>
+		</footer>
+    </div>
+</body>
+</html>
